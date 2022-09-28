@@ -40,12 +40,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        //validating data
+        $validateData = $request->validate([
+            'title'=> 'required', //alpha numerik tidak menerima spasi sehingga tidak menerima input lebih dari 1 kata
+            'description' => 'required'
+        ]);
+
+        //req input
         $project = new Project;
         $project->title = $request->input('title');
         $project->description = $request->input('description');
         $project->save();
 
-        return redirect('projects');
+        return redirect('projects')-> with('success','data succesfully added');
     }
 
     /**
@@ -87,11 +94,17 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //validating data
+        $validateData = $request->validate([
+            'title'=> 'required|AlphaNum', //alpha numerik tidak menerima spasi sehingga tidak menerima input dengan 1 kata
+            'description' => 'required'
+        ]);
+
         Project::where('id', $request->id)->update([
             'title' => $request->title,
             'description' => $request->description
         ]);
-        return redirect('projects');
+        return redirect('projects')-> with('success','data succesfully updated');
     }
 
     /**
@@ -105,6 +118,13 @@ class ProjectController extends Controller
 
         $project = Project::find($id)->delete();
         
-        return redirect('projects');
+        return redirect('projects')->with(['success' => 'data has succesfully removed']);
+    }
+    
+    public function hapus($id)
+    {
+        $projects = Project::find($id);
+        $projects->delete();
+        return redirect('/projects')->with(['success' => 'data has succesfully removed']);
     }
 }

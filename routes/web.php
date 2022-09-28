@@ -25,3 +25,5 @@ Route::resource('about-me',
 
 Route::resource('contact-me',
 'App\Http\Controllers\ContactMeController');
+
+Route::get('projects/hapus/{id}', [App\Http\Controllers\ProjectController::class, 'hapus']);
