@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('about-me');
 });
+
+Route::resource('projects',
+'App\Http\Controllers\ProjectController');
+
+Route::resource('about-me',
+'App\Http\Controllers\AboutMeController');
+
+Route::resource('contact-me',
+'App\Http\Controllers\ContactMeController');
