@@ -16,7 +16,7 @@ class ProjectController extends Controller
     {
         $data = array(
             'id' => "projects",
-            'projects' => Project::all()
+            'projects' => Project::orderBy('created_at', 'desc')->paginate(10)
         );
         // melempar data ke view
         return view('projects.index')->with($data);
@@ -42,7 +42,7 @@ class ProjectController extends Controller
     {
         //validating data
         $validateData = $request->validate([
-            'title'=> 'required', //alpha numerik tidak menerima spasi sehingga tidak menerima input lebih dari 1 kata
+            'title'=> 'required',
             'description' => 'required'
         ]);
 
@@ -96,7 +96,7 @@ class ProjectController extends Controller
     {
         //validating data
         $validateData = $request->validate([
-            'title'=> 'required|AlphaNum', //alpha numerik tidak menerima spasi sehingga tidak menerima input dengan 1 kata
+            'title'=> 'required', //alpha numerik tidak menerima spasi sehingga tidak menerima input dengan 1 kata
             'description' => 'required'
         ]);
 

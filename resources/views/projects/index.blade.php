@@ -28,5 +28,11 @@
             
         <button class="btn btn-dark"><a href="{{ route('projects.create') }}" style="color: #FFFFFF">Add Project</a></button>
     </div>
+
+    <!-- pagination -->
+    Halaman : {{ $projects->currentPage() }} <br />
+    Jumlah Data : {{ $projects->total() }} <br />
+    Data Per Halaman : {{ $projects->perPage() }} <br />
+    <div class="d-flex"> {{ $projects->links() }} </div>
     
 @endsection
