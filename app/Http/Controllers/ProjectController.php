@@ -16,7 +16,7 @@ class ProjectController extends Controller
     {
         $data = array(
             'id' => "projects",
-            'projects' => Project::orderBy('created_at', 'desc')->paginate(10)
+            'projects' => Project::orderBy('created_at', 'desc')->paginate(3)
         );
         // melempar data ke view
         return view('projects.index')->with($data);
@@ -126,5 +126,11 @@ class ProjectController extends Controller
         $projects = Project::find($id);
         $projects->delete();
         return redirect('/projects')->with(['success' => 'data has succesfully removed']);
+    }
+
+    // membatasi akses
+    public function __construct()
+    {
+        $this->middleware('auth', ["except" => ["index", "show"]]);
     }
 }

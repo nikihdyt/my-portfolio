@@ -26,7 +26,10 @@
         @endif
             </div>
             
+        @if(Auth::user())
         <button class="btn btn-dark"><a href="{{ route('projects.create') }}" style="color: #FFFFFF">Add Project</a></button>
+        @endif
+        
     </div>
 
     <!-- pagination -->

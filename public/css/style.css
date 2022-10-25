@@ -1,0 +1,15 @@
+button.social_button{
+    background: #7D6E83;
+    color: #e8e8e8;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: .182s;
+}
+body.dark button.social_button{
+    color: #e8e8e8;
+}
+button.social_button:hover{
+    opacity: 70%;
+}

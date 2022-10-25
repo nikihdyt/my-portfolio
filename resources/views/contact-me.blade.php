@@ -25,6 +25,14 @@
         </div>
       </div>
     </div>
+    
+    <!-- social medias -->
+    <div class="social noselect">
+      <button onclick='location.href="https://github.com/nikihdyt"' class="social_button"><i class="fab fa-github"></i></button>
+      <button onclick='location.href="https://www.linkedin.com/in/niki-hidayati/"' class="social_button"><i class="fab fa-linkedin-in"></i></button>
+      <button onclick='location.href="https://g.dev/nikihdyti"' class="social_button"><i class="fa fa-code"></i></button>
+    </div>
+
   </div>
 </div>
 @endsection
