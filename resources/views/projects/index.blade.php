@@ -15,8 +15,7 @@
             <div class="col-sm-4">
             <div class="thumbnail">
                 <img src="https://cdn.dribbble.com/users/398488/screenshots/8141696/project-management_4x.png" width="400" height="300">
-                <p><strong><a href="/projects/{{$project->id}}">
-                {{$project->title}}</a></strong></p>
+                <p style="margin: 0px"><strong><a href="/projects/{{$project->id}}">{{$project->title}}</a></strong></p>
                 <small>{{$project->created_at}}</small>
                 </div>
             </div>
@@ -36,6 +35,6 @@
     Halaman : {{ $projects->currentPage() }} <br />
     Jumlah Data : {{ $projects->total() }} <br />
     Data Per Halaman : {{ $projects->perPage() }} <br />
-    <div class="d-flex"> {{ $projects->links() }} </div>
+    <div class="d-flex" style="margin-top: 8px"> {{ $projects->links() }} </div>
     
 @endsection
