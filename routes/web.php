@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,13 @@ Route::resource('contact-me',
 Route::get('projects/hapus/{id}', [App\Http\Controllers\ProjectController::class, 'hapus']);
 
 Auth::routes([
-    'reset' => false,
+    'reset' => true,
    ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+Route::get('/send-email', [App\Http\Controllers\SendEmailController::class, 'index'])->name('kirim-email');
+Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'store'])->name('post-email');
