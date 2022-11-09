@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-sm">
           <div class="pro-img-details">
-              <img src="https://cdn.dribbble.com/users/398488/screenshots/8141696/project-management_4x.png" alt="" width="400" height="300">
+          <img src="{{asset('storage/projects_image/'.$projects->picture)}}">
           </div>
       </div>
       <div class="col-sm">

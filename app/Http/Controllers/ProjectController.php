@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
 {
@@ -42,12 +44,24 @@ class ProjectController extends Controller
     {
         //validating data
         $validateData = $request->validate([
-            'title'=> 'required',
-            'description' => 'required'
+            'title'=> 'required|max:255',
+            'description' => 'required',
+            'picture' => 'image|nullable|max:1999'
         ]);
+        
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->storeAs('public/projects_image', $filenameSimpan);
+        } else {
+            $filenameSimpan = 'noimage.png';
+        }
 
         //req input
         $project = new Project;
+        $project->picture = $filenameSimpan;
         $project->title = $request->input('title');
         $project->description = $request->input('description');
         $project->save();
@@ -115,7 +129,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-
+        File::delete(public_path() . '/public/projects_image/' . $project->picture);
         $project = Project::find($id)->delete();
         
         return redirect('projects')->with(['success' => 'data has succesfully removed']);
