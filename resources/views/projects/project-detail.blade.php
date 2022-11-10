@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-sm">
           <div class="pro-img-details">
-          <img src="{{asset('storage/projects_image/'.$projects->picture)}}">
+          <img src="{{asset('storage/projects_image/'.$projects->picture)}}" width="300">
           </div>
       </div>
       <div class="col-sm">

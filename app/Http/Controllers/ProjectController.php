@@ -56,7 +56,7 @@ class ProjectController extends Controller
             $filenameSimpan = $filename . '_' . time() . '.' . $extension;
             $path = $request->file('picture')->storeAs('public/projects_image', $filenameSimpan);
         } else {
-            $filenameSimpan = 'noimage.png';
+            $filenameSimpan = 'noimage.jpg';
         }
 
         //req input

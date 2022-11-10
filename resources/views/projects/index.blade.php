@@ -15,7 +15,7 @@
             <div class="col-sm-4">
             <div class="thumbnail">
                 <!-- <img src="https://cdn.dribbble.com/users/398488/screenshots/8141696/project-management_4x.png" width="400" height="300"> -->
-                <img src="{{asset('storage/projects_image/'.$project->picture)}}" width="400" height="300">
+                <img src="{{asset('storage/projects_image/'.$project->picture)}}" width="250" >
                 <p style="margin: 0px"><strong><a href="/projects/{{$project->id}}">{{$project->title}}</a></strong></p>
                 <small>{{$project->created_at}}</small>
                 </div>
