@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\GreetController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
 
@@ -44,3 +45,5 @@ Route::get('/send-email', [App\Http\Controllers\SendEmailController::class, 'ind
 Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'store'])->name('post-email');
 
 Route::resource('gallery', 'App\Http\Controllers\GalleryController');
+
+Route::get('/greet', [GreetController::class, 'greet'])->name('greeting');
