@@ -81,10 +81,7 @@ class GreetController extends Controller
     */
     public function index(Request $request) {
         $data = array(
-            'id' => "projects",
-            'menu' => 'Gallery',
-            'galleries' => Project::where('picture', '!=',
-           '')->whereNotNull('picture')->orderBy('created_at','desc')->paginate(5)
+            'galleries' => Project::where('picture', '!=', '')->whereNotNull('picture')->orderBy('created_at','desc')->get()
         );
 
         return $data; 
