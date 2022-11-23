@@ -86,4 +86,8 @@ class GreetController extends Controller
 
         return $data; 
     }
+
+    public function gallery(Request $request) {
+        return view('gallery.index-api');
+    }
 }

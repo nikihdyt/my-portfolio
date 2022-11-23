@@ -45,5 +45,6 @@ Route::get('/send-email', [App\Http\Controllers\SendEmailController::class, 'ind
 Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'store'])->name('post-email');
 
 Route::resource('gallery', 'App\Http\Controllers\GalleryController');
+Route::get('galleryAPI', [App\Http\Controllers\GreetController::class, 'gallery'])->name('gallery');
 
 Route::get('/greet', [GreetController::class, 'greet'])->name('greeting');
