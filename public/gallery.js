@@ -11,7 +11,7 @@ $(document).ready(function () {
                 gal += '<div> <a class="example-image-link" href="http://localhost:8000/storage/projects_storage/' + element['picture'] + '" data-lightbox="roadtrip" data-title=""> <img class ="example-image img-fluid mb-2" src="http://localhost:8000/storage/projects_storage/' + element['picture'] + '" alt="image-1"/> </a></div>';
             });
 
-            $('gallery-api').html(gal);
+            $('#gallery-api').html(gal);
             console.log(gal)
 
         }

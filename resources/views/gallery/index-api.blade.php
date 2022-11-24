@@ -24,10 +24,7 @@
                         <div class = "card-body">
                             <div class = "row">
                                 <div class = "col-sm-2">
-                                    <div>
-                                        <a href="" class="example-image-link" data-lightbox="example-2" data-title="">
-                                            <img src="" alt="image-1" class="example-image img-fluid mb-2">
-                                        </a>
+                                    <div id="gallery-api">
                                     </div>
                                 </div>
                             </div>
