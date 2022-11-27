@@ -19,6 +19,11 @@
         Gallery
         </a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link" href="{{ url('/galleryAPI') }}">
+        Gallery API
+        </a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
